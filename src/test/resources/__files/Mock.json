@@ -1,0 +1,14 @@
+{
+  "id" : 111,
+  "name":  "Jadranko",
+  "lastName": "Jankovic",
+  "position": "QA",
+  "jobDefinition": {
+    "seniority": "junior",
+    "automation": true,
+    "language": "Java",
+    "testDocumentation": true,
+    "workHoursPerWeek": 40
+  },
+  "directManager": "John Doe"
+}

@@ -34,8 +34,8 @@ public class EmployeeTest extends BaseApi {
     request.body(new Employee(UserDescription.REGULAR));
     response = request.post(Endpoints.NEW_EMPLOYEE);
 
-    Assert.assertEquals(response.statusCode(), 200);
-    Assert.assertEquals(response.statusLine(), ExpectingStatusLine.NEW_USER_CREATED);
+    softAssert.assertEquals(response.statusCode(), 200);
+    softAssert.assertEquals(response.statusLine(), ExpectingStatusLine.NEW_USER_CREATED);
     softAssert.assertTrue(response.time() < 3000,
             "The response time is not under 3 seconds");
     softAssert.assertAll("These are the issues: ");

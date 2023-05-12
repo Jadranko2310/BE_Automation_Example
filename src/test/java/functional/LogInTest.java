@@ -22,8 +22,8 @@ public class LogInTest extends BaseApi {
     response = userAction.logIn(LogInUserDetails.VALID_USERNAME,
             LogInUserDetails.VALID_PASSWORD);
 
-    Assert.assertEquals(response.statusCode(), 200);
-    Assert.assertEquals(response.statusLine(), ExpectingStatusLine.SUCESS_LOG_IN);
+    softAssert.assertEquals(response.statusCode(), 200);
+    softAssert.assertEquals(response.statusLine(), ExpectingStatusLine.SUCESS_LOG_IN);
     softAssert.assertTrue(response.time() < 3000,
             "Response time is longer than 3 sec");
     softAssert.assertAll("These are the issues: ");

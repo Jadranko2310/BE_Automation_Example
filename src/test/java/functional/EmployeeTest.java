@@ -1,6 +1,7 @@
 package functional;
 
 import data.response.ExpectingStatusLine;
+import helpers.CustomAssert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojo.employee.Employee;
@@ -13,6 +14,8 @@ import setup.mockserver.TestListener;
 
 @Listeners(TestListener.class)
 public class EmployeeTest extends BaseTest {
+
+  CustomAssert customAssert = new CustomAssert();
 
   @EmployeeServer
   @Test
@@ -33,10 +36,6 @@ public class EmployeeTest extends BaseTest {
     request.body(new Employee(UserDescription.REGULAR));
     response = request.post(Endpoints.NEW_EMPLOYEE);
 
-    softAssert.assertEquals(response.statusCode(), 200);
-    softAssert.assertEquals(response.statusLine(), ExpectingStatusLine.NEW_USER_CREATED);
-    softAssert.assertTrue(response.time() < 3000,
-            "The response time is not under 3 seconds");
-    softAssert.assertAll("These are the issues: ");
+    customAssert.validateStandardResponse(response, ExpectingStatusLine.NEW_USER_CREATED);
   }
 }

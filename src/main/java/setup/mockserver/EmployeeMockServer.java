@@ -6,7 +6,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import data.request.employee.NewEmployeeJsonRequest;
 import lombok.Getter;
 import lombok.Setter;
-import setup.base.BaseApi;
+import setup.base.BaseTest;
 
 /**
  * Mock server. Defined base configuration (response code, headers, response body)
@@ -18,7 +18,7 @@ public class EmployeeMockServer implements ImockServer {
 
   private WireMockServer server = new WireMockServer(8000);
 
-  private BaseApi baseApi;
+  private BaseTest baseApi;
 
   public NewEmployeeJsonRequest data = new NewEmployeeJsonRequest();
 

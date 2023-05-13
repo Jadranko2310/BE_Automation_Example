@@ -4,19 +4,19 @@ import data.response.ExpectingStatusLine;
 import data.user.LogInUserDetails;
 import org.testng.annotations.DataProvider;
 import pojo.logIn.LogInRequestBody;
-import setup.base.BaseApi;
+import setup.base.BaseTest;
 
 /**
  * Data provider will iterate objects of LogIn Request Body
  * with invalid or incorrect data and expected status line.
  */
 
-public class LogInInvalidData extends BaseApi {
+public class LogInInvalidData extends BaseTest {
 
   /**
    * Data provider method.
    */
-  @DataProvider(name = "LogIn invalid data")
+  @DataProvider(name = "LogIn_invalid_data")
   public Object[][] logInData() {
     return new Object[][]{
             {

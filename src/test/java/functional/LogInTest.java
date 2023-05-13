@@ -24,6 +24,6 @@ public class LogInTest extends BaseTest {
     response = userAction.logIn(LogInUserDetails.VALID_USERNAME,
             LogInUserDetails.VALID_PASSWORD);
 
-    customAssert.validatestandardresponse(response, ExpectingStatusLine.SUCESS_LOG_IN);
+    customAssert.validateStandardResponse(response, ExpectingStatusLine.SUCESS_LOG_IN);
   }
 }

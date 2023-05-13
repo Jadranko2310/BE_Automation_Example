@@ -16,7 +16,7 @@ public class LogInInvalidData extends BaseTest {
   /**
    * Data provider method.
    */
-  @DataProvider(name = "LogIn invalid data")
+  @DataProvider(name = "LogIn_invalid_data")
   public Object[][] logInData() {
     return new Object[][]{
             {

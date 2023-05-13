@@ -16,7 +16,7 @@ public class LogInTest extends BaseTest {
   LogInRequest userAction = new LogInRequest();
 
   @LogInServer
-  @Test(dataProvider = "LogIn invalid data", dataProviderClass = LogInInvalidData.class)
+  @Test(dataProvider = "LogIn_invalid_data", dataProviderClass = LogInInvalidData.class)
   public void checkingLogInValidations(LogInRequestBody requestBody,
                                        ExpectingStatusLine statusLine) {
     response = userAction.logIn(requestBody.getUserName(), requestBody.getPassword());

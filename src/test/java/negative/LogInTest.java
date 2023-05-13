@@ -2,7 +2,6 @@ package negative;
 
 import data.provider.LogInInvalidData;
 import data.response.ExpectingStatusLine;
-import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojo.logIn.LogInRequestBody;

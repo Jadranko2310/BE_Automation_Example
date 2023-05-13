@@ -5,15 +5,14 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import pojo.logIn.LogInRequestBody;
-import setup.base.BaseApi;
+import setup.base.BaseTest;
 import setup.base.Endpoints;
 
 /**
  * Log in request definition.
  */
-public class LogInRequest extends BaseApi {
+public class LogInRequest extends BaseTest {
 
   /**
    * Log in request.

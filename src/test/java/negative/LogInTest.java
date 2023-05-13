@@ -6,12 +6,12 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pojo.logIn.LogInRequestBody;
 import request.LogInRequest;
-import setup.base.BaseApi;
+import setup.base.BaseTest;
 import setup.mockserver.LogInServer;
 import setup.mockserver.TestListener;
 
 @Listeners(TestListener.class)
-public class LogInTest extends BaseApi {
+public class LogInTest extends BaseTest {
 
   LogInRequest userAction = new LogInRequest();
 

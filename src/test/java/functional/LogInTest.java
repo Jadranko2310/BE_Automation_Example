@@ -5,6 +5,8 @@ import data.user.LogInUserDetails;
 import helpers.CustomAssert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pojo.logIn.LogInDescription;
+import pojo.logIn.LogInRequestBody;
 import request.LogInRequest;
 import setup.base.BaseTest;
 import setup.mockserver.LogInServer;
@@ -18,11 +20,16 @@ public class LogInTest extends BaseTest {
   CustomAssert customAssert = new CustomAssert();
 
 
+  /**
+   * This test will ask for username and password
+   * on terminal during Maven runtime.
+   * After this, it will validate the response.
+   */
   @LogInServer
   @Test
   public void validLogIn() {
-    response = userAction.logIn(LogInUserDetails.VALID_USERNAME,
-            LogInUserDetails.VALID_PASSWORD);
+    LogInRequestBody requestBody = new LogInRequestBody(LogInDescription.MAVEN_PROPERTY);
+    response = userAction.logIn(requestBody.getUserName(), requestBody.getPassword());
 
     customAssert.validateStandardResponse(response, ExpectingStatusLine.SUCESS_LOG_IN);
   }

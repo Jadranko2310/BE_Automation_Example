@@ -7,5 +7,7 @@ public enum LogInDescription {
 
   VALID,
 
-  INVALID
+  INVALID,
+
+  MAVEN_PROPERTY
 }

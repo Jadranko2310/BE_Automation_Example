@@ -7,7 +7,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import pojo.logIn.LogInRequestBody;
 import setup.base.BaseTest;
-import setup.base.Endpoints;
+import setup.base.Constants;
 
 /**
  * Log in request definition.
@@ -20,7 +20,7 @@ public class LogInRequest extends BaseTest {
   public Response logIn(String username, String password) {
     request = RestAssured
             .given()
-            .baseUri(Endpoints.BASE_URI)
+            .baseUri(Constants.BASE_URI)
             .port(8080)
             .contentType(ContentType.JSON)
             .filter(new RequestLoggingFilter())
@@ -30,7 +30,7 @@ public class LogInRequest extends BaseTest {
 
     LogInRequestBody requestBody = new LogInRequestBody(username, password);
     request.body(requestBody);
-    response = request.post(Endpoints.LOG_IN);
+    response = request.post(Constants.LOG_IN);
     return response;
   }
 }

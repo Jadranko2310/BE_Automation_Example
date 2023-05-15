@@ -30,7 +30,7 @@ public abstract class BaseTest {
   public BaseTest() {
     this.request = RestAssured
             .given()
-            .baseUri(Endpoints.BASE_URI)
+            .baseUri(Constants.BASE_URI)
             .port(8000)
             .contentType(ContentType.JSON)
             .filter(new RequestLoggingFilter())

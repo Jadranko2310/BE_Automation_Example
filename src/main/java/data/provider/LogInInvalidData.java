@@ -5,6 +5,7 @@ import data.user.LogInUserDetails;
 import org.testng.annotations.DataProvider;
 import pojo.logIn.LogInRequestBody;
 import setup.base.BaseTest;
+import setup.base.Constants;
 
 /**
  * Data provider will iterate objects of LogIn Request Body
@@ -23,20 +24,20 @@ public class LogInInvalidData extends BaseTest {
             new LogInRequestBody(
                     "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
                             LogInUserDetails.VALID_PASSWORD),
-            new ExpectingStatusLine(ExpectingStatusLine.USERNAME_TOO_LONG)
+            new ExpectingStatusLine(Constants.USERNAME_TOO_LONG)
             },
             {
             new LogInRequestBody("", LogInUserDetails.VALID_PASSWORD),
-            new ExpectingStatusLine(ExpectingStatusLine.EMPTY_FIELD)
+            new ExpectingStatusLine(Constants.EMPTY_FIELD)
             },
             {
             new LogInRequestBody(LogInUserDetails.VALID_USERNAME, ""),
-            new ExpectingStatusLine(ExpectingStatusLine.MISSING_PASSWORD)
+            new ExpectingStatusLine(Constants.MISSING_PASSWORD)
             },
             {
             new LogInRequestBody(LogInUserDetails.VALID_USERNAME,
                     LogInUserDetails.INVALLID_PASSWORD),
-            new ExpectingStatusLine(ExpectingStatusLine.INCORRECT_CREDENTIALS)
+            new ExpectingStatusLine(Constants.INCORRECT_CREDENTIALS)
             }
     };
   }

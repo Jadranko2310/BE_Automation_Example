@@ -94,8 +94,8 @@
                                                              tofile="src/test/resources/base_URL.properties"/>
                                                         </tasks>
                                                     </configuration>
-                                                </execution>
-                                </executions>
+                                </execution>
+                             </executions>
                     </plugin>
                 </plugins>
             </build>

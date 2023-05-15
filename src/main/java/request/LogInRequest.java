@@ -5,15 +5,14 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import pojo.logIn.LogInRequestBody;
-import setup.base.BaseApi;
-import setup.base.Endpoints;
+import setup.base.BaseTest;
+import setup.base.Constants;
 
 /**
  * Log in request definition.
  */
-public class LogInRequest extends BaseApi {
+public class LogInRequest extends BaseTest {
 
   /**
    * Log in request.
@@ -21,7 +20,7 @@ public class LogInRequest extends BaseApi {
   public Response logIn(String username, String password) {
     request = RestAssured
             .given()
-            .baseUri(Endpoints.BASE_URI)
+            .baseUri(Constants.BASE_URI)
             .port(8080)
             .contentType(ContentType.JSON)
             .filter(new RequestLoggingFilter())
@@ -31,7 +30,7 @@ public class LogInRequest extends BaseApi {
 
     LogInRequestBody requestBody = new LogInRequestBody(username, password);
     request.body(requestBody);
-    response = request.post(Endpoints.LOG_IN);
+    response = request.post(Constants.LOG_IN);
     return response;
   }
 }

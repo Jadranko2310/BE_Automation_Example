@@ -27,6 +27,12 @@ To get started with the project, follow these steps:
 3. Install project dependencies using Maven.
 
 4. Run the tests (The tests can be run from the editor, and from command line by: navigating to project folder, running command: mvn clean test.)
+   If we want to run just functional tests, we can run the command: mvn clean test -Dfile=Functional.xml
+   If we want to run just negative tests, we can run the command: mvn clean test -Dfile=Negative.xml
+   If we are executing the tests where some properties are set as Maven property, we need to define and properties as well:
+      {standard Maven command already explained} -Dusername={your_username} -Dpassword={your_password}
+   If we want to change testing environment, we need to run -P prod and maven will change the profile
+   and read base url from prod properties file 
 
 ## Features
 

@@ -1,3 +1,0 @@
-<listeners>
-    <listener class-name="common.mock_server_configuration.TestListener"/>
-</listeners>

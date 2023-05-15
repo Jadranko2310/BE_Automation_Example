@@ -4,11 +4,16 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+*.idea
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+<<<<<<< HEAD
 .idea/workspace.xml
+=======
+
+>>>>>>> c4a86da833be0c370ec0479b28558568443bbeb3
 *.iws
 *.iml
 *.ipr

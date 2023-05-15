@@ -42,6 +42,10 @@ public class LogInRequestBody {
         setUserName(LogInUserDetails.VALID_USERNAME);
         setPassword(LogInUserDetails.INVALLID_PASSWORD);
       }
+      case MAVEN_PROPERTY -> {
+        setUserName(System.getProperty("username"));
+        setPassword(System.getProperty("password"));
+      }
       default -> System.out.println("Body description not match, please entry parameter");
     }
   }

@@ -2,30 +2,36 @@ package functional;
 
 import data.response.ExpectingStatusLine;
 import data.user.LogInUserDetails;
-import org.testng.Assert;
+import helpers.CustomAssert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import pojo.logIn.LogInDescription;
+import pojo.logIn.LogInRequestBody;
 import request.LogInRequest;
-import setup.base.BaseApi;
+import setup.base.BaseTest;
+import setup.base.Constants;
 import setup.mockserver.LogInServer;
 import setup.mockserver.TestListener;
 
 @Listeners(TestListener.class)
-public class LogInTest extends BaseApi {
+public class LogInTest extends BaseTest {
 
   LogInRequest userAction = new LogInRequest();
 
+  CustomAssert customAssert = new CustomAssert();
 
+
+  /**
+   * This test will ask for username and password
+   * on terminal during Maven runtime.
+   * After this, it will validate the response.
+   */
   @LogInServer
   @Test
   public void validLogIn() {
-    response = userAction.logIn(LogInUserDetails.VALID_USERNAME,
-            LogInUserDetails.VALID_PASSWORD);
+    LogInRequestBody requestBody = new LogInRequestBody(LogInDescription.MAVEN_PROPERTY);
+    response = userAction.logIn(requestBody.getUserName(), requestBody.getPassword());
 
-    softAssert.assertEquals(response.statusCode(), 200);
-    softAssert.assertEquals(response.statusLine(), ExpectingStatusLine.SUCESS_LOG_IN);
-    softAssert.assertTrue(response.time() < 3000,
-            "Response time is longer than 3 sec");
-    softAssert.assertAll("These are the issues: ");
+    customAssert.validateStandardResponse(response, Constants.SUCESS_LOG_IN);
   }
 }

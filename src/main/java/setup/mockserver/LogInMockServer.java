@@ -6,7 +6,7 @@ import com.github.tomakehurst.wiremock.WireMockServer;
 import data.request.logIn.LogInValidationData;
 import lombok.Getter;
 import lombok.Setter;
-import setup.base.BaseApi;
+import setup.base.BaseTest;
 
 /**
  * Mock Server for Log In service.
@@ -17,7 +17,7 @@ public class LogInMockServer implements ImockServer {
 
   private WireMockServer server = new WireMockServer(8080);
 
-  private BaseApi baseApi;
+  private BaseTest baseApi;
 
   public LogInValidationData data = new LogInValidationData();
 
